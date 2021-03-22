@@ -14,6 +14,8 @@ public interface FilmRepository extends JpaRepository<Film, Long> {
 
     void deleteFilmByTitle(String string);
 
+    List<Film>findAll();
+
     List<Film>findFilmsByTitleContaining(String string);
 
     @Query(" select p from Film p where p.id between :from and :to")

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add CSS and JS to Thymeleaf</title>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<body>
+<h2>Add actor</h2>
+<div style="text-align: center" th:insert="fragments/navigation.html ::navbar"></div>
+<br>
+<section>
+
+    <form action="#" th:action="@{/addActor}" th:object="${actor}" method="post">
+        <input type="hidden" th:field="*{id}">
+        Name: <input type="text" th:field="*{name}"><br>
+        Surname: <input type="text" th:field="*{surname}"><br>
+        <input type="submit">
+    </form>
+
+</section>
+
+
+
+
+</body>
+</html>

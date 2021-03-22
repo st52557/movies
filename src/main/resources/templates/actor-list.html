@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<body style="text-align: left">
+<h2 style="text-align: center">Actors list</h2>
+<div style="text-align: center" th:insert="fragments/navigation.html ::navbar"></div>
+<section class="new">
+    <button class="btn btn-primary" onclick="window.location.href='/actor-form';  return false;" type="button"><span>New actor</span></button>
+</section>
+<br>
+
+<ul class="list-group">
+
+    <li class="list-group-item list-group-item-primary" th:each="actor: ${actorList}" th:onclick="'window.location.href=\'/actor-detail/' + ${actor.getId()} + '\''">
+        <h4 th:text="${actor.name} + ' ' + ${actor.surname}"></h4>
+    </li>
+
+</ul>
+
+
+</body>
+</html>

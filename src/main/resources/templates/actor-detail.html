@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie detail</title>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+</head>
+<body style="text-align: left">
+<h2>Actor detail</h2>
+
+<section>
+    <button class="btn btn-primary" onclick="window.location.href='/actor-list';  return false;" type="button"><i class="fa fa-arrow-left"></i> <span>Return</span></button>
+</section>
+
+<hr>
+
+<section>
+
+    <br>
+    <h4 th:text="'Name: ' + ${actor.name}"></h4>
+    <br>
+    <h4 th:text="'Surname: ' + ${actor.surname}"></h4>
+    <br>
+    <h4 th:text="'About: '"></h4>
+    <p style="width: 40%" th:text="${actor.about}"></p>
+    <br>
+
+</section>
+
+<section>
+    <button class="btn btn-primary" th:onclick="'window.location.href=\'/actor-form/' + ${actor.getId()} + '\''" type="button"><span>Edit</span></button>
+</section>
+
+</body>
+</html>
