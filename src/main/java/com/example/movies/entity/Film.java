@@ -12,8 +12,8 @@ public class Film {
     private Long id;
 
 
-    @OneToMany(mappedBy = "id")
-    private Set<FilmGenre> FilmsGender;
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
+    private Set<FilmGenre> filmGenres;
 
     @Column()
     private String title;
@@ -48,11 +48,11 @@ public class Film {
     }
 
     public Set<FilmGenre> getFilmsGender() {
-        return FilmsGender;
+        return filmGenres;
     }
 
     public void setFilmsGender(Set<FilmGenre> filmsGender) {
-        FilmsGender = filmsGender;
+        filmGenres = filmsGender;
     }
 
     public String getTitle() {
@@ -117,5 +117,13 @@ public class Film {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public Set<FilmGenre> getFilmGenres() {
+        return filmGenres;
+    }
+
+    public void setFilmGenres(Set<FilmGenre> filmGenres) {
+        this.filmGenres = filmGenres;
     }
 }

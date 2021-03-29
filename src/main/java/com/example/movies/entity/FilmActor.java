@@ -18,7 +18,6 @@ public class FilmActor {
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
 
-
     public Long getId() {
         return id;
     }

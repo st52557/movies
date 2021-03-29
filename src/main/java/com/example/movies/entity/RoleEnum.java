@@ -14,7 +14,7 @@ public enum RoleEnum {
         return this.name;
     }
 
-    private RoleEnum(String name)
+    RoleEnum(String name)
     {
         this.name = name;
     }
