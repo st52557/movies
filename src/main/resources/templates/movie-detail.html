@@ -37,6 +37,13 @@
 <section>
     <button class="btn btn-primary" th:onclick="'window.location.href=\'/movie-form/' + ${movie.getId()} + '\''" type="button"><span>Edit</span></button>
 </section>
+<br>
+<section>
+    <form action="#" th:action="@{/delMovie}" th:object="${movie}" method="post">
+        <input class="btn btn-primary" type="submit" value="Remove" >
+        <input type="hidden" th:field="*{id}">
+    </form>
+</section>
 
 </body>
 </html>

@@ -7,6 +7,7 @@ import com.example.movies.repository.ActorRepository;
 import com.example.movies.repository.FilmRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -74,6 +75,13 @@ public class MovieController {
         film.setId(addOrEditMovieDto.getId());
 
         filmRepository.save(film);
+        return "redirect:/";
+    }
+    @Transactional
+    @PostMapping("/delMovie")
+    public String removeMovie(AddOrEditMovieDto addOrEditMovieDto, Model model){
+
+        filmRepository.deleteFilmById(addOrEditMovieDto.getId());
         return "redirect:/";
     }
 
